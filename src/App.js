@@ -4,7 +4,7 @@ import Main from "./components/Main";
 import Error from "./components/Error";
 import Loader from "./components/Loader";
 
-import { useEffect, useReducer } from "react";
+import { useEffect } from "react";
 import StartScreen from "./components/StartScreen";
 import Question from "./components/Question";
 import NextButton from "./components/NextButton";
@@ -16,17 +16,7 @@ import Timer from "./components/Timer";
 import { useQuiz } from "./context/QuizContext";
 
 function App() {
-  const {
-    questions,
-    status,
-    index,
-    answer,
-    points,
-    highscore,
-    remainingseconds,
-    dispatch,
-    numQuestions,
-  } = useQuiz();
+  const { questions, status, index, dispatch } = useQuiz();
 
   useEffect(() => {
     async function fetchFakeData() {
@@ -40,7 +30,7 @@ function App() {
       }
     }
     fetchFakeData();
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className="app">
