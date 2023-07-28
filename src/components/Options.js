@@ -1,4 +1,7 @@
-export default function Options({ question, dispatch, answer, points }) {
+import { useQuiz } from "../context/QuizContext";
+
+export default function Options({ question }) {
+  const { answer, dispatch } = useQuiz();
   function optionHandler(index) {
     dispatch({ type: "newAnswer", payload: index });
   }

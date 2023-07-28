@@ -1,11 +1,8 @@
 import React from "react";
+import { useQuiz } from "../context/QuizContext";
 
-export default function FinishScreen({
-  maxPoints,
-  points,
-  highscore,
-  dispatch,
-}) {
+export default function FinishScreen() {
+  const { points, maxPoints, dispatch, highscore } = useQuiz();
   const percentage = (points / maxPoints) * 100;
 
   function handelRestart() {

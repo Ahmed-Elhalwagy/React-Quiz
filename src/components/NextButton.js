@@ -1,6 +1,8 @@
 import React from "react";
+import { useQuiz } from "../context/QuizContext";
 
-export default function NextButton({ dispatch, answer, numQuestions, index }) {
+export default function NextButton() {
+  const { dispatch, answer, numQuestions, index } = useQuiz();
   function handelNext() {
     dispatch({ type: "nextQuestion" });
   }

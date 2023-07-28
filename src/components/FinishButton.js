@@ -1,11 +1,9 @@
 import React from "react";
+import { useQuiz } from "../context/QuizContext";
 
-export default function FinishButton({
-  dispatch,
-  answer,
-  numQuestions,
-  index,
-}) {
+export default function FinishButton() {
+  const { dispatch, answer, index, numQuestions } = useQuiz();
+
   function handelFinish() {
     dispatch({ type: "finished" });
   }
